@@ -7,7 +7,7 @@
 
 
 ___
-## Pre-requisites
+## Pre-requisites installations
 + NodeJS
 + PgAdmin4
 + PostgreSQL
@@ -25,8 +25,8 @@ ___
 
 ### Pre-registered accounts(Many records of grades)
 
-| Email | Password | User Role |
-| ------ | ----------- | ----------- |
+| Email | Password |
+| ------ | ----------- |
 | ``` covidtom@email.com ```  | ``` password ``` |
 ___
 
@@ -34,9 +34,9 @@ ___
 
 ### Screenshots
 > Home Page
-![Completions](CompletionScreenshots/HomePage1.png)
-![Completions](CompletionScreenshots/HomePage2.png)
-![Completions](CompletionScreenshots/HomePage3.png)
+![Completions](CompletionScreenshots/Homepage1.png)
+![Completions](CompletionScreenshots/Homepage2.png)
+![Completions](CompletionScreenshots/Homepage3.png)
 > Modules Page
 ![Completions](CompletionScreenshots/ModulesPage.png)
 > Module Statistics Page
