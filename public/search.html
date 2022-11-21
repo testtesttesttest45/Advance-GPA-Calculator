@@ -1,0 +1,137 @@
+<head>
+    <title>GPA Pal | Search</title>
+    <link rel="stylesheet" href="./css/profile.css">
+    <!-- <link rel="stylesheet" href="./css/plan.css"> -->
+    <script src="https://kit.fontawesome.com/087a8a6b95.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+        integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+
+    <script src="./js/username.js"></script>
+    <script src="./js/global.js" type="module"></script>
+    <!-- <script src="./js/profile.js"></script> -->
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+</head>
+
+<body class="">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="favicons/android-chrome-192x192.png" width="25" height="25" alt="Logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href='modules.html'>All Modules</a></li>
+                    <!-- <li><a href='plan.html'>Plan</a></li> -->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href='search.html'>Search <i class="fas fa-search"></i></a></li>
+                    <li><a href='login.html' id="thisusername">Login</a></li>
+                    <li><a href='signup.html' id="signupButton">Sign Up</a></li>
+                    <li><a href='login.html' id="logoutButton">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container bootstrap snippets bootdey">
+        <div class="row">
+            <div class="col">
+                <!-- Actual search box -->
+                <form>
+                    <div class="form-group has-feedback has-search">
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        <input type="text" class="form-control" placeholder="Search for Public Profiles" name="filter">
+                    </div>
+                </form>
+                <!-- Search results -->
+                <div id="search_results">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    try {
+        $(document).ready(function () {
+            $.ajax({
+                url: `/users`,
+                type: "GET",
+                dataType: "json",
+                success: function (data, textStatus, xhr) {
+                    if (data) {
+                        const query = new URLSearchParams(window.location.search).get('filter') ||
+                            "";
+
+                        const filteredData = data.filter(function (user) {
+                            return user.username.toLowerCase().includes(query
+                                .toLowerCase());
+                        });
+
+                        const usersInformation = filteredData.map((item) => {
+                            return `
+                                <div class="card w-100">
+                                    <div class="card-body" style="border:1px solid black">
+                                        <p style="margin:20px 0px 20px 20px" class="card-text"><b>User Profile:</b></p>
+                                        <p style="margin:20px 0px 20px 20px" class="card-text">Username: <a href="/user.html?user_id=${item.user_id}">${item.username}</a></p>
+                                        <h5 style="margin:20px 0px 20px 20px" class="card-title">Email: ${item.email}</h5>
+                                    </div>
+                                </div>
+
+                                <br />
+                            `
+                        })
+                        if(usersInformation.length == 0) {
+                            $("#search_results").html(`
+                                <div class="card w-100">
+                                    <div class="card-body" style="border:1px solid black">
+                                        <p style="margin:20px 0px 20px 20px" class="card-text"><b>No users found or the person you are looking for has a private profile.</b></p>
+                                    </div>
+                                </div>
+                            `)
+                        } else {
+                            $("#search_results").html(usersInformation)
+                        }
+
+                        
+                    }
+                },
+            });
+        });
+    } catch (ex) {
+        console.log(ex)
+    }
+</script>

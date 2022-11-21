@@ -1,0 +1,150 @@
+<html>
+
+<head>
+    <title>GPA Pal | All Modules</title>
+
+    <!-- external libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+        integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <script src="https://kit.fontawesome.com/087a8a6b95.js" crossorigin="anonymous"></script>
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+        </script>
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/swal.css">
+    <script src="./js/username.js"></script>
+    <script src="./js/global.js" type="module"></script>
+    <script src="./js/modules.js" type=""></script>
+    <!-- Place Style Sheets Before Scripts hor guys -->
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="favicons/android-chrome-192x192.png" width="25" height="25" alt="Logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href='modules.html'>All Modules</a></li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href='login.html' id="thisusername">Login</a></li>
+                    <li><a href='signup.html' id="signupButton">Sign Up</a></li>
+                    <li><a href='login.html' id="logoutButton">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Changed button style -->
+    <!-- <div>
+        <button type="button" style="background-color:red;position:absolute; top:90; right:0; width: 100px; height: 50px; font-size: 1.5em">Add</button>
+    </div> -->
+    <div style="height: 15%; width: 100%; background-color: #D3D3D3; display: flex; align-items: center; justify-content: center;">
+        <strong style="font-size: 3em; font-family: Apple Chancery, cursive;">Modules List</strong>
+    </div>
+    <div style="width:100%">
+        <div style="width: 70%; float: left;">
+            <input type="text" id="searchContainer"
+                placeholder="Search a module by Abbreviation or Title, then press ENTER"><button type="button"><i
+                    id="searchButton" class="fa fa-search" style="height: 18px; width: 20px; margin-top: 2px;">
+                </i></button><button id="clearSearch" type="button">Clear Search</button>
+            <div id="pageContainer"></div>
+
+            <div id="modulelist"></div>
+        </div>
+        <div id="sortingContainer">
+            <h3>SORT MODULES BY</h3>
+            <div>
+                <form id="sortingForm">
+                    <div>
+                        <h4>Alphabetical</h4>
+                        <input type="radio" class="alphaSort" id="alphaAsc" name="alphaAsc" value="Ascending">
+                        <label for="alphaAsc">Ascending</label><br>
+                        <input type="radio" class="alphaSort" id="alphaDesc" name="alphaDesc" value="Descending">
+                        <label for="alphaDesc">Descending</label>
+                    </div>
+                    <div style="margin-left:20px;">
+                        <h4>Credits</h4>
+                        <input type="radio" class="credSort" id="credAsc" name="credAsc" value="Ascending">
+                        <label for="credAsc">Ascending</label><br>
+                        <input type="radio" class="credSort" id="credDesc" name="credDesc" value="Descending">
+                        <label for="credDesc">Descending</label>
+                    </div>
+                    <button type="button" id="sortButton">Update</button>
+                </form>
+            </div>
+        </div>
+        <div id="collapsibleDiv" style="visibility:hidden">
+            <button class="collapsible" id="collapsibleButton"><i class="fa-solid fa-plus"> Create Module</i></button>
+            <div class="content">
+                <form id="createModuleForm">
+                    <div class="form-group">
+                        <label for="moduleNameAbbreviation">Module Name Abbreviation</label>
+                        <input type="text" class="form-control" id="moduleNameAbbreviation"
+                            name="moduleNameAbbreviation" placeholder="ADES, DENG" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="moduleTitle">Module Title</label>
+                        <input type="text" class="form-control" id="moduleTitle" name="moduleTitle"
+                            placeholder="Application Development Studio, Data Engineering" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="moduleDescription">Module Description</label>
+                        <!-- <input type="text" class="form-control" id="moduleDescription" name="moduleDescription"
+                        placeholder="Give a brief description of this module" required> -->
+                        <!-- create a multiline text area for module description -->
+                        <textarea class="form-control" id="moduleDescription" name="moduleDescription" rows="3"
+                            placeholder="Give a brief description of this module" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="moduleCredits">Module Credits</label>
+                        <input type="number" class="form-control" id="moduleCredits" name="moduleCredits"
+                            placeholder="5, 6 (Integers only)" required>
+                    </div>
+                    <div class="form-group">
+                        <button id="createModuleButton" type="button" onclick="createNewModule()">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+
+</html>

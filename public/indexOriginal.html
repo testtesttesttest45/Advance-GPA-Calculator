@@ -1,0 +1,280 @@
+<html>
+
+<head>
+    <title>GPA Pal</title>
+
+    <!-- external libraries -->
+    <script src="https://kit.fontawesome.com/087a8a6b95.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- sweet alert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- sweet alert2, to be used only for single purpose alerts, like Success, OK button -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- confetti effects library-->
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+        </script>
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <script src="./js/global.js" type="module"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/username.js"></script>
+    <script src="./js/automater.js"></script>
+    <script src="./js/plan.js"></script>
+    <!-- Place Style Sheets Before Scripts hor guys -->
+</head>
+
+
+
+<body id="indexPage">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="favicons/android-chrome-192x192.png" width="30" height="30" alt="Logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href='modules.html'>All Modules</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href='login.html' id="thisusername">Login</a></li>
+                    <li><a href='signup.html' id="signupButton">Sign Up</a></li>
+                    <li><a href='login.html' id="logoutButton">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div class="center">
+
+            <div class="left">
+                <section>
+                    <div>
+                        <h1>List of Modules</h1>
+                    </div>
+                    <br>
+                    <div id="searchWrapper">
+                        <input type="text" name="searchInput" id="searchInput"
+                            placeholder="&#128269 Search for module(s)" autocomplete="off">
+                    </div>
+                    <h5>MODULE NAME (MODULE CREDITS)</h5>
+
+                    <div id="listofmodules"></div>
+                    <div>
+                        <button type="button" id="moduleListButtonsPrev" class="moduleListButtons">&#8249;</button>
+                        <button type="button" id="moduleListButtonsNext" style="float:right;"
+                            class="moduleListButtons">&#8250;</button>
+                    </div>
+                    <input type="checkbox" id="read-only" name="read-only" value="read-only">
+                    <label for="read-only">Read-Only</label><br>
+                </section>
+            </div>
+            <div class="middle">
+                <section>
+                    <div>
+                        <h1>
+                            <i class="fa-solid fa-1" style="color: red;"></i>&emsp;Select The Module & Enter Your Grade
+                        </h1>
+                        <form id="select-module-form">
+                            <div>
+                                <input type="text" placeholder="Module Name (e.g. ADES)" id="module-name"
+                                    autocomplete="off" required />
+                                <div id="module-drop-list"></div>
+                            </div>
+                            <br>
+                            <div>
+                                <input type="number" placeholder="Credit Units" id="credit" readonly disabled />
+                            </div>
+                            <br>
+                            <div>
+                                <label id="grade-label">Grade</label>
+                                <br>
+                                <select id="grade" required>
+                                    <option value="4" style="background-color: #32CD32;">A</option>
+                                    <option value="3.5" style="background-color: #67c100;">B+</option>
+                                    <option value="3" style="background-color:#88b400;">B</option>
+                                    <option value="2.5" style="background-color: #a3a500;">C+</option>
+                                    <option value="2" style="background-color: #bc9400;">C</option>
+                                    <option value="1.5" style="background-color: #d18000;">D+</option>
+                                    <option value="1" style="background-color: #e46700;">D</option>
+                                    <option value="0.5" style="background-color: #f34700;">D-</option>
+                                    <option value="0" style="background-color: #ff0000;">F</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div>
+                                <button type="submit" class="addmodulebutton" id="add-module-btn">Add Module</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <div class="right">
+                <section>
+                    <div id="testX">
+                        <h1><i class="fa-solid fa-2" style="color: red;"></i>&emsp;Module List</h1>
+                        <table id="module-table">
+                            <thead>
+                                <tr>
+                                    <th style="padding-right: 10px;">Name</th>
+                                    <th style="padding-right: 10px;">Credit</th>
+                                    <th style="padding-right: 10px;">Grade</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <template id="module-row-template">
+                            <tr>
+                                <th class="row-name">Name</th>
+                                <th class="row-credit">Credit</th>
+                                <th class="row-grade">Grade</th>
+                                <th><button class="row-delete">Delete</button></th>
+                            </tr>
+                        </template>
+                    </div>
+
+                    <div>
+                        <h1><i class="fa-solid fa-3" style="color: red;"></i>&emsp;Your GPA</h1>
+                        <button id="calculateGPA">Calculate GPA</button>
+                        <p>GPA: <input type="number" disabled placeholder="GPA Units" id="GPA" required readonly /></p>
+                        <input type="number" disabled id="totalCredits" style="visibility:visible" readonly />
+                        <h4 id="congratulations"></h4>
+                        <table id="tableCalculate" style="visibility:hidden">
+                            <thead>
+                                <tr>
+                                    <th>Module</th>
+                                    <th>Credit</th>
+                                    <th>Grade</th>
+                                    <th>Grade Points</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <template id="tableCalculate-row-template">
+                            <tr>
+                                <td class="row-moduleCalculated">Module</th>
+                                <td class="row-creditCalculated">Credit</th>
+                                <td class="row-gradeCalculated">Grade</th>
+                                <td class="row-calculation">Grade Points</th>
+                            </tr>
+                            <tr>
+                                <td class="row-TotalCredits">TotalCredits</th>
+
+                            </tr>
+                        </template>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- create a div with a button inside. The button will be at the center of the div -->
+        <div style="position: absolute; bottom: 0%; left: 50%; transform: translate(-50%, -50%);">
+            <!-- <button id="fulfillButton">Fulfill</button> -->
+        </div>
+        <div class="footer">
+            <br><br><br>
+            <section id="plan-section">
+                <h1 id="plan-h1">
+                    Plan
+                </h1>
+                <p id="createdText"></p>
+                <form id="plan-form">
+                    <label for="currentGPA" id="currentGPALabel">Current GPA:</label>
+                    <input type="number" disabled id="currentGPA" name="currentGPA"
+                        title="Your current GPA (correct to 2 decimal places) - This will be filled in automatically.">
+                    <!-- <label style="font-size:medium; color: lightsalmon;">
+                        &nbsp;&nbsp;Your current GPA (correct to 2 decimal places) - This will be filled in
+                        automatically.
+                    </label> -->
+                    <br><br>
+                    <label for="targetGPA" id="targetGPALabel">Target GPA:</label>
+                    <input required type="number" step="0.01" id="targetGPA" name="targetGPA" min="0" max="4"
+                        title="Your target GPA. This will be automatically rounded to 2 decimal places">
+                    <!-- <label style="font-size:medium; color: lightsalmon;">
+                        &nbsp;&nbsp;Your target GPA (correct to 2 decimal places) goes here.
+                    </label> -->
+                    <br><br>
+                    <label for="currentCredits" id="currentCreditsLabel">Current Credits:</label>
+                    <input required type="number" disabled id="currentCredits" name="currentCredits" min="0"
+                        title="The total number of credits you take - This will be filled in automatically.">
+                    <!-- <label style="font-size:medium; color: lightsalmon;">
+                        &nbsp;&nbsp;The total number of credits you take - This will be filled in automatically.
+                    </label> -->
+                    <br><br>
+                    <label for="futureCredits" id="futureCreditsLabel">Future Credits:</label>
+                    <input type="number" step="1" id="futureCredits" name="futureCredits" min="0"
+                        title="The total number of credits you plan to take goes here. This will be automatically rounded to the nearest integer.">
+                    <!-- <label style="font-size:medium; color: lightsalmon;">
+                        &nbsp;&nbsp;The total number of credits you plan to take goes here.
+                    </label> -->
+                    <br><br>
+                    <div id="planButtons" style="padding: 10px">
+                        <button type="button" id="saveButton">Create</button>
+                        <button id="fulfillButton" type="button">FULFILL</button>
+                    </div>
+                    <br>
+                </form>
+            </section>
+            <section style="padding-bottom: 30px;">
+                <h1>
+                    <i class="fa-solid fa-3" style="color: red;"></i>
+                    &emsp;Share
+                </h1>
+                <form>
+                    <div>
+                        <input type="text" placeholder="Your &#10024; Custom &#10024; Share ID" id="custom-share-id"
+                            autocomplete="off" required />
+                        &nbsp;&nbsp;&nbsp;
+                        <button type="submit" id="generate-link" disabled>Generate</button>
+                        <br><br>
+                    </div>
+                    <input style="width: 80vw; font-size: 1.5em" type="text" disabled id="share-link" />
+                    <button type="button" title="Copy to clipboard" class="postResultButtons" id="buttonCopyToClipboard"
+                        style="visibility:hidden"><i class="fas fa-clipboard"></i></button>
+                    <button type="button" title="Open link in new tab" class="postResultButtons" id="buttonNewTab"
+                        style="visibility:hidden">
+                        <i class="fa-solid fa-up-right-from-square"></i>
+                    </button>
+                    <!-- <button type="button" id="generate-link2" style="visibility: hidden;">Post grades only</button> -->
+                    <br><br><br>
+                    <p>Time generated: <span id="time-generated"></span></p>
+                </form>
+            </section>
+        </div>
+    </div>
+
+</body>
+<script>ProceedProfileorLogin()</script>
+
+</html>

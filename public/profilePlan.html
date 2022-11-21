@@ -1,0 +1,179 @@
+<head>
+    <title>GPA Pal | Plan</title>
+    <link rel="stylesheet" href="./css/profile.css">
+    <link rel="stylesheet" href="./css/editProfile.css">
+    <!-- <link rel="stylesheet" href="./css/plan.css"> -->
+    <script src="https://kit.fontawesome.com/087a8a6b95.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+        integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- sweet alert2, to be used only for single purpose alerts, like Success, OK button -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+
+    <script src="./js/username.js"></script>
+    <script src="./js/global.js" type="module"></script>
+    <script src="./js/profilePlan.js"></script>
+    <!-- <script src="./js/profile.js"></script>
+    <script src="./js/plan.js"></script> -->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+        </script>
+</head>
+
+<body class="">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="favicons/android-chrome-192x192.png" width="25" height="25" alt="Logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href='modules.html'>All Modules</a></li>
+                    <!-- <li><a href='plan.html'>Plan</a></li> -->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href='login.html' id="thisusername">Login</a></li>
+                    <li><a href='signup.html' id="signupButton">Sign Up</a></li>
+                    <li><a href='login.html' id="logoutButton">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-body">
+            <div class="row">
+                <div class="profile-nav col-lg-3">
+                    <div class="panel">
+                        <div class="user-heading round">
+                            <a disabled>
+                                <img src="media/no_pfp.png" alt="">
+                            </a>
+                            <h1 id="banner-username"></h1>
+                            <p id="banner-email"></p>
+                            <h3 id="banner-fulfillCount"></h3>
+                        </div>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="/profile.html"> <i class="fa fa-user"></i> Profile</a></li>
+                            <li><a href="/edit-profile.html"> <i class="fa fa-edit"></i> Edit profile</a>
+                            <li class="active"><a href="/plan.html"> <i class="fa-solid fa-bullseye"></i>Plan</a></li>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="profile-info col-lg-9">
+                    <div class="panel">
+                        <div class="bio-graph-heading" style="font-size: larger;">
+                            My Current Plan
+                        </div>
+                        <div class="panel-body bio-graph-info" id="plan-div">
+                            <div class="row">
+                                <div class="bio-row">
+                                    <p style="color: grey; text-align: center; font-size: medium;"><span
+                                            title="Your current GPA (This has been rounded to 2 decimal places)">Current
+                                            GPA: </span><span id="panel-body-current-gpa" style="color: black;"></span>
+                                    </p>
+                                </div>
+                                <div class="bio-row">
+                                    <p style="color: grey; text-align: center; font-size: medium;"><span
+                                            title="Your target GPA. (This has been rounded to 2 decimal places)">Target
+                                            GPA: </span><span id="panel-body-target-gpa" style="color: black;"></span>
+                                    </p>
+                                </div>
+                                <div class="bio-row">
+                                    <p style="color: grey; text-align: center; font-size: medium;"><span
+                                            title="The total number of credits you take">Current Credits: </span><span
+                                            id="panel-body-current-credits" style="color: black;"></span></p>
+                                </div>
+                                <div class="bio-row">
+                                    <p style="color: grey; text-align: center; font-size: medium;"><span
+                                            title="The total number of credits you plan to take goes here">Future
+                                            Credits: </span><span id="panel-body-future-credits"
+                                            style="color: black;"></span></p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br><br><br>
+                        <div class="bio-graph-heading" style="font-size: larger;">
+                            Planner Message
+                        </div>
+                        <div class="panel-body bio-graph-info">
+                            <!-- <h1>Information</h1> -->
+                            <div class="row">
+                                <div class="bio-row" id="gpa-stat" style="font-size: medium; text-align: center;">
+                                </div>
+                                <div class="bio-row" id="credit-stat" style="font-size: medium; text-align: center;">
+                                </div>
+                            </div>
+                        </div>
+                        <br><br><br>
+                        <div class="bio-graph-heading" style="font-size: larger;">
+                            Plan History
+                        </div>
+                        <div class="panel-body bio-graph-info"  id="testing">
+                            <!-- <h1>Information</h1> -->
+                            <div class="panel-body bio-graph-info" id="plan-div">
+                                <div class="row">
+                                    <div class="bio-row">
+                                        <p style="color: grey; text-align: center; font-size: medium;"><span
+                                                title="Your current GPA (This has been rounded to 2 decimal places)">Current
+                                                GPA: </span><span id="panel-history-current-gpa" style="color: black;"></span>
+                                        </p>
+                                    </div>
+                                    <div class="bio-row">
+                                        <p style="color: grey; text-align: center; font-size: medium;"><span
+                                                title="Your target GPA. (This has been rounded to 2 decimal places)">Target
+                                                GPA: </span><span id="panel-history-target-gpa" style="color: black;"></span>
+                                        </p>
+                                    </div>
+                                    <div class="bio-row">
+                                        <p style="color: grey; text-align: center; font-size: medium;"><span
+                                                title="The total number of credits you take">Current Credits: </span><span
+                                                id="panel-history-current-credits" style="color: black;"></span></p>
+                                    </div>
+                                    <div class="bio-row">
+                                        <p style="color: grey; text-align: center; font-size: medium;"><span
+                                                title="The total number of credits you plan to take goes here">Future
+                                                Credits: </span><span id="panel-history-future-credits"
+                                                style="color: black;"></span></p>
+                                    </div>
+                                    <div id="panel-history"></div>
+    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

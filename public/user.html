@@ -1,0 +1,226 @@
+<head>
+    <title>GPA Pal | Visit</title>
+    <link rel="stylesheet" href="./css/profile.css">
+    <!-- <link rel="stylesheet" href="./css/plan.css"> -->
+    <script src="https://kit.fontawesome.com/087a8a6b95.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+        integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+
+    <script src="./js/username.js"></script>
+    <script src="./js/global.js" type="module"></script>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <!-- <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin>
+    </script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script> -->
+
+    <!-- Load our React component. -->
+    <script src="./js/user.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+        </script>
+</head>
+
+<body class="">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="favicons/android-chrome-192x192.png" width="25" height="25" alt="Logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href='modules.html'>All Modules</a></li>
+                    <!-- <li><a href='plan.html'>Plan</a></li> -->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href='search.html'>Search <i class="fas fa-search"></i></a></li>
+                    <li><a href='login.html' id="thisusername">Login</a></li>
+                    <li><a href='signup.html' id="signupButton">Sign Up</a></li>
+                    <li><a href='login.html' id="logoutButton">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container bootstrap snippets bootdey">
+        <div class="row">
+            <div class="profile-nav col-md-3">
+                <div class="panel">
+                    <div class="user-heading round">
+                        <a disabled>
+                            <img id="statusImage" src="./media/no_pfp.png" alt="profile-pic">
+                        </a>
+                        <h1 id="banner-username"></h1>
+                        <p id="banner-email"></p>
+                        <p id="banner-status"></p>
+                        <p>User Status▼</p>
+                        <select name="statusDroplist" id="statusDroplist" style="color:black;width:150px;">
+                            <option class="statusItems" value="prodigy" style="color:black" disabled>Prodigy Student</option>
+                            <option class="statusItems" value="excellent" style="color:black" disabled>Ace Student</option>
+                            <option class="statusItems" value="good" style="color:black" disabled>Good Student</option>
+                            <option class="statusItems" value="average" style="color:black" disabled>Normal Student</option>
+                            <option class="statusItems" value="bad" style="color:black" disabled>Bad Student</option>
+                            <option class="statusItems" value="hopeless" style="color:black" disabled>Hopeless Student</option>
+                        </select>
+                    </div>
+
+                    <ul class="nav nav-pills nav-stacked">
+                        <!-- <li class="active"><a href="/profile.html"> <i class="fa fa-user"></i>Profile</a></li> -->
+                        <li class="active"><a disabled> <i class="fa fa-user"></i>Profile</a></li>
+                        <!-- <li><a href="/edit-profile.html"> <i class="fa fa-edit"></i>Edit profile</a></li>
+                        <li><a href="/plan.html"> <i class="fa-solid fa-bullseye"></i>Plan</a></li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="profile-info col-md-6">
+                <div class="panel">
+                    <div class="bio-graph-heading">
+                        My Information
+                    </div>
+                    <div class="panel-body bio-graph-info">
+                        <!-- <h1>Information</h1> -->
+                        <div class="row">
+                            <div class="bio-row">
+                                <p style="color: grey;">Username: <span id="panel-body-username"
+                                        style="color: black;"></span></p>
+                            </div>
+                            <div class="bio-row">
+                                <p style="color: grey;">Email: <span id="panel-body-email" style="color: black;"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+                <div class="panel">
+                    <div class="bio-graph-heading">My Grades</div>
+                    <div class="row">
+                        <div id="profileDetails2"></div>
+                    </div>
+                </div>
+                <br><br><br>
+                <!-- <div class="panel">
+                    <div class="bio-graph-heading">
+                        My Plan
+                    </div>
+                </div> -->
+            </div>
+            <div class="profile-sorter col-md-3">
+                <div id="sortingContainer">
+                    <h3>SORT RESULTS BY</h3>
+                    <div>
+                        <form id="sortingForm">
+                            <div style="float: left; width: 50%;">
+                                <h4>GPA</h4>
+                                <input type="radio" class="gpaSort" id="gpaAsc" name="gpaAsc" value="Descending">
+                                <label for="gpaAsc">Highest First</label><br>
+                                <input type="radio" class="gpaSort" id="gpaDesc" name="gpaDesc" value="Ascending">
+                                <label for="gpaDesc">Lowest First</label>
+                            </div>
+                            <div style="float: right; width: 50%;">
+                                <h4>Creation</h4>
+                                <input type="radio" class="creationSort" id="creationAsc" name="creationAsc"
+                                    value="Descending">
+                                <label for="creationAsc">Latest First</label><br>
+                                <input type="radio" class="creationSort" id="creationDesc" name="creationDesc"
+                                    value="Ascending">
+                                <label for="creationDesc">Oldest First</label>
+                                <!-- default will show oldest as first -->
+                            </div>
+                            <button type="button" id="sortButton">Update</button>
+                        </form>
+                    </div>
+                    <br><br><br><br><br>
+                    <div id="pageContainer""></div>
+                    <p style="font-weight:bold;margin-top:10px;" id="displayingNumbers"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+<!-- 
+    <div class=" container bootstrap snippets bootdey">
+                        <div class="row">
+                            <div class="profile-nav col-md-3">
+                                <div class="panel">
+                                    <div class="user-heading round">
+                                        <a href="/">
+                                            <img id="statusImage" src="./media/no_pfp.png" alt="profile-pic">
+                                        </a>
+                                        <h1 id="banner-username"></h1>
+                                        <p id="banner-email"></p>
+                                    </div>
+
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li class="active"><a href="/profile.html"> <i
+                                                    class="fa fa-user"></i>Profile</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="profile-info col-md-9">
+                                <div class="panel">
+                                    <div class="bio-graph-heading">
+                                        User Information
+                                    </div> -->
+                                    <!-- <div class="panel-body bio-graph-info"> -->
+                                    <!-- <h1>Information</h1> -->
+                                    <!-- <div class="row">
+                            <div class="bio-row">
+                                <p style="color: black;">Username: <span id="panel-body-username"></span></p>
+                            </div>
+                            <div class="bio-row">
+                                <p style="color: black;">Email: <span id="panel-body-email"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+                <div class="panel">
+                    <div class="bio-graph-heading">
+                        My Grades
+                    </div>
+                    <div class="row">
+                        <div id="profileDetails2"></div>
+                    </div>
+                </div>
+                <br><br><br>
+                <div class="panel">
+                    <div class="bio-graph-heading">
+                        My Plan
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->

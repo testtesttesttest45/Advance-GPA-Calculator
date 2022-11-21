@@ -1,0 +1,154 @@
+<!-- NOTE: THIS IS THE ORIGINAL, BUT THE LOGIN PAGE IS NOW USING REACT COMPONENTS -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GPA Pal | Login</title>
+
+    <!-- external libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+    integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+        </script>
+
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/login.js"></script>
+    <!-- <script src="./js/username.js"></script> -->
+
+    <!-- Place Style Sheets Before Scripts hor guys -->
+</head>
+
+<body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="favicons/android-chrome-192x192.png" width="25" height="25" alt="Logo">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href='modules.html'>All Modules</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- <li><a href='signup.html' id="signupButton">Sign Up</a></li> -->
+                        <!-- <li><a href='login.html' id="logoutButton">Log out</a></li> -->
+                        <!-- <li><a href='login.html' id="thisusername">Login</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div style="width:40%; height: 90%; float:left; display: flex; align-items: center; justify-content: center; padding-right: 50px;">
+                <form id="login-form" style="align-items:center; display: block; margin: auto;">
+                    <strong style="text-align: center; font-size: 2.7em; color: white;">Log in</strong><br />
+                    <label for="email" style="font-size: 2em; color: white;">Email:</label><br />
+                    <input type="email" id="email" name="email" placeholder="Email" style="width:175%; font-size: 1.5em;" required><br><br>
+                    <label for="password" style="font-size: 2em; color: white;">Password:</label>< /br>
+                    <input type="password" id="password" name="password" placeholder="Password" style="width:175%; font-size: 1.5em;" required><br><br>
+                    <div style="font-size: 1.5em">
+                        <input type="checkbox" onclick="ShowPassword()">
+                        <span style="color: white;">
+                            &nbsp;Show Password
+                        </span>
+                    </div>
+                    &nbsp;&nbsp;
+                    <div style="padding: 10px; padding-left:100px; font-size: 1.5em;">
+                        <button type="submit" id="loginButton">Login!</button>
+                        </br>
+                        <button type="button" id="guestButton">
+                            <a href="index.html">Continue as Guest</a>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div style="width:25%; height: 90%; float:right; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+                <div>
+                    <div style="text-align: center; color: white;">
+                        <h1>No account?</h1>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="font-size:2em;"><a href="./signup.html" style="color: gold;">Click here to sign up!</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+
+<script>
+    function ShowPassword() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
+
+
+<!-- baby method? -->
+<!-- <script>
+        $(document).ready(function () {
+            $("#loginbutton").click(function () {
+                var email = $('#email').val();
+                var password = $('#password').val();
+                var data = JSON.stringify({ email: email, password: password });
+                console.log(data);
+                $.ajax({
+                    url: '/login',
+                    type: 'POST',
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data, textStatus, xhr) {
+                        if (data != null) {
+                            localStorage.setItem('token', data.token);
+                            localStorage.setItem('userInfo', data.UserData);
+                            window.location.assign("index.html");
+                        } else {
+                            console.log("Error");
+                        }
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log('Error in Operation');
+                    }
+                });
+                return false;
+            });
+        });  
+    </script> -->
+
+</body>
+
+</html>

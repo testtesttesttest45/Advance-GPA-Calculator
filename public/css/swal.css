@@ -1,0 +1,9 @@
+.swal-button {
+  background: cornflowerblue;
+  color: white;
+  border-radius: 5px;
+}
+
+.swal-button--confirm {
+  background: crimson;
+}

@@ -1,0 +1,73 @@
+.container {
+	top: 10%;
+	position: relative;
+	height: 90%;
+}
+
+html, body {
+	/* background-color: moccasin; */
+	height: 100%;
+	/* background-color: #f3f3f3; */
+}
+
+input[type=text], select {
+	color: black;
+	width: 100%;
+	padding: 12px 12px;
+	margin: 8px 0x;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=email], select {
+	width: 100%;
+	padding: 12px 12px;
+	margin: 8px 0x;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=password], select {
+	width: 100%;
+	padding: 12px 12px;
+	margin: 8px 0x;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=checkbox] {
+	width: 18px;
+	height: 18px;
+}
+
+#signupButton {
+	display: flex;
+	justify-content: flex-end;
+	margin: auto;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+#loginButton, #guestButton {
+	display: flex;
+	justify-content: flex-end;
+	margin: auto;
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#guestButton a:link {
+	text-decoration: none;
+}
+
+
+body {
+	background: linear-gradient(to top right, #4086E8 0%, #FE0D69 100%);
+}

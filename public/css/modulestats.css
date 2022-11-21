@@ -1,0 +1,33 @@
+button.row {
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+    width: 140px;
+    height: 60px;
+    margin-top: 30px;
+    margin-left: 30px;
+    color: navy;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.statwords {
+    font-size: 1.5em;
+}
+
+#viewbuttonContainer {
+    margin-left: 20px;
+}
+
+.chartBox {
+    width: 500px;
+    height: 300px;
+    position: relative;
+    top: -35%;
+}
+
+#piechartInfo {
+    right: 80%;
+    display: block;
+    color: navy;
+}

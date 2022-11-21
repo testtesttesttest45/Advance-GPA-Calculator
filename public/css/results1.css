@@ -1,0 +1,24 @@
+.spinner {
+    margin-left: auto;
+    margin-right: auto;
+    height: 75vh;
+    background:
+        url("../media/loader.gif") center no-repeat;
+    z-index: 1;
+}
+
+.unfoundMessage {
+    color: red;
+}
+
+.h1 {
+    text-align: center;
+}
+
+.spTable {
+    border: 1px solid black;
+}
+
+thead, tbody{
+    background-color: WHITE;
+}

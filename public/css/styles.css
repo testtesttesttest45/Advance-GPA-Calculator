@@ -1,0 +1,538 @@
+.center h1 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width: 100%;
+  border-bottom: 2px solid gray;
+  color: navy;
+  font-size: 1.5em;
+}
+
+
+
+.footer h1 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width: 100%;
+  border-bottom: 2px solid gray;
+  color: navy;
+}
+
+center,
+body {
+  /* background: linear-gradient(95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64%); */
+  width: 100%;
+  /* background-color: moccasin; */
+  background-color: #f3f3f3
+}
+
+.ul,
+li:hover,
+.ul,
+li:focus {
+  background: #527df3;
+}
+
+.center {
+  height: 60%;
+  margin-left: 10px;
+}
+
+.footer {
+  margin-left: 5%;
+}
+
+.left {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  border-collapse: collapse;
+  width: 33.33%;
+  height: 100%;
+  float: left;
+}
+
+.middle {
+  display: flex;
+  border-collapse: collapse;
+  width: 33.33%;
+  float: left;
+}
+
+.right {
+  display: flex;
+  border-collapse: collapse;
+  width: 33%;
+  float: right;
+}
+
+.center button {
+  background-color: lightgray;
+  color: white;
+  padding: 5px;
+
+  cursor: pointer;
+}
+
+#modulelist {
+  margin-left: 5%;
+  margin-right: 10%;
+  border-style: groove;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 50px;
+}
+
+#pageContainer {
+  margin-left: 5%;
+  border: none;
+  padding-bottom: 10px;
+  display: flex;
+}
+
+.pagingButtons {
+  width: 50px;
+  border: 1px solid black;
+}
+
+#searchContainer {
+  width: 70%;
+  height: 35px;
+  margin-left: 5%;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+
+#sortingForm {
+  display: flex;
+}
+
+#sortingContainer {
+  margin-left: 5%;
+}
+
+#sortButton {
+  height: 40px;
+  margin-left: 20px;
+  margin-top: 40px;
+  border-radius: 5px;
+}
+
+#listofmodules {
+  border: 2px solid #0099CC;
+  height: 55%;
+  overflow: auto;
+}
+
+button.detailsbutton,
+.deleteButton,
+.editButton {
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  float: right;
+  right: 30%;
+  top: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+button.detailsbutton {
+  background: #007fff;
+}
+
+
+button.editButton {
+  width: 70px;
+  background: linear-gradient(0deg, #c471f5 0%, #fa71cd 74%);
+}
+
+button.deleteButton {
+  background-image: linear-gradient(0deg, #a40606 0%, #FF7F7F 74%);
+}
+
+button:hover {
+  background-image: linear-gradient(0deg, #63a4ff 0%, #83eaf1 74%);
+}
+
+hr {
+  border: 2px;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 200, 1), rgba(0, 0, 0, 0))
+}
+
+.moduledropitem {
+  background-color: white;
+  border: 1px solid black;
+  width: 150px;
+  height: 25px;
+  font-size: 20px;
+  color: black;
+}
+
+.moduledropitem:hover {
+  background-color: lightblue;
+}
+
+.addmodulebutton:disabled {
+  background-color: black;
+}
+
+#generate-link {
+  color: white;
+  background-color: lightcoral;
+  font-size: 1.5em;
+  padding: 10px
+}
+
+#moduleStatWrapper {
+  color: blue;
+  margin-top: 70px;
+  margin-left: 50px;
+}
+
+#GPA {
+  margin-top: 30px;
+}
+
+.thead,
+tr,
+th {
+  padding: 10px;
+
+}
+
+.form,
+p {
+  font-size: 1.5em;
+}
+
+.container {
+  position: relative;
+}
+
+/* .container .box {
+  border-color: rgb(50, 90, 200);
+  border-radius: 5px;
+  max-width: 500px;
+  align-self: center;
+  margin: auto;
+  padding: 30px;
+  border-style: solid;
+} */
+
+input[type=text],
+select {
+  width: 100%;
+  padding: 12px 12px;
+  margin: 8px 0x;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+input[type=email],
+select {
+  width: 100%;
+  padding: 12px 12px;
+  margin: 8px 0x;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+input[type=password],
+select {
+  width: 100%;
+  padding: 12px 12px;
+  margin: 8px 0x;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+#deleteSet {
+  background-color: red;
+  position: absolute;
+  color: white;
+  right: 10%;
+  border-radius: 5px;
+}
+
+
+/* all buttons */
+button {
+  cursor: pointer;
+}
+
+#moduleInfo {
+  margin-left: 50px;
+  top: 10%;
+  right: 40%;
+  color: navy;
+}
+
+.btn {
+  background-color: red;
+  /* Red background */
+  height: 100px;
+  width: 250px;
+  border: none;
+  /* Remove borders */
+  color: white;
+  /* White text */
+  font-size: 16px;
+  /* Set a font size */
+  cursor: pointer;
+  /* Mouse pointer on hover */
+  border-radius: 10px;
+  padding: 20px;
+  top: 0;
+}
+
+
+#plan-form {
+  text-align: left;
+  font-size: medium;
+}
+
+#currentGPA,
+#targetGPA,
+#currentCredits,
+#futureCredits {
+  font-size: 16px;
+}
+
+#saveButton {
+  background-color: #77ff72;
+  padding: 10px;
+}
+
+#add-module-btn,
+#generate-link,
+#saveButton {
+  color: black;
+  border-color: black;
+  font-size: 1.5em;
+  font-size: large;
+  border-radius: 10px;
+}
+
+#add-module-btn {
+  background-color: lightgoldenrodyellow;
+}
+
+/* this is for the collapsible form in modules page */
+.collapsible {
+  font-weight: bold;
+  align-items: center;
+  background-color: #007fff;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 400px;
+  border: 1px solid black;
+  outline: none;
+
+  border-radius: 5px;
+}
+
+.active,
+.collapsible:hover {
+  background-color: #007fff;
+  background-image: linear-gradient(0deg, #007fff 0%, #83eaf1 74%);
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  width: 400px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+#createModuleButton {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100px;
+  height: 50px;
+  background-color: #007fff;
+  background-image: linear-gradient(0deg, #007fff 0%, #83eaf1 74%);
+}
+
+#createModuleButton:hover {
+  background-image: linear-gradient(0deg, #007fff 0%, #007fff 74%);
+}
+
+
+#module-name,
+#credit,
+#grade-label,
+#grade,
+#currentgpa,
+#targetgpa,
+#currentcredits,
+#futurecredits {
+  font-size: 1em;
+}
+
+#currentGPALabel,
+#targetGPALabel,
+#currentCreditsLabel,
+#futureCreditsLabel {
+  font-size: 21px;
+}
+
+#grade {
+  width: 25%;
+}
+
+#custom-share-id {
+  width: 50%;
+}
+
+.moduleListButtons:hover {
+  background-image: linear-gradient(0deg, #007fff 0%, #007fff 74%);
+  color: white;
+}
+
+
+.moduleListButtons {
+  background-color: #007fff;
+  background-image: linear-gradient(0deg, #63a4ff 0%, #83eaf1 74%);
+  border-style: none;
+  float: left;
+  border-radius: 0%;
+  width: 150px;
+  top: 0;
+  text-decoration: none;
+  padding: 8px 16px;
+}
+
+#share-link {
+  width: 80vw;
+  font-size: 1.5em;
+  background: lightgrey;
+}
+
+.postResultButtons {
+  width: 50px;
+  height: 50px;
+}
+
+#module-drop-list {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+/* sets all disbaled buttons hover to  nothing */
+button:hover:disabled {
+  background-color: lightgray;
+
+}
+
+table#tableCalculate {
+  font-family: "Times New Roman", Times, serif;
+  border: 1px solid #000000;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  border-collapse: collapse;
+  margin: auto;
+
+}
+
+table#tableCalculate td,
+table#tableCalculate th {
+  border: 1px solid;
+  padding: 10px;
+}
+
+table#tableCalculatetbody td {
+  font-size: medium;
+}
+
+table#tableCalculate tr:nth-child(even) {
+  background: linear-gradient(0deg, #c471f5 0%, #fa71cd 74%);
+}
+
+table#tableCalculate tr:nth-child(odd) {
+  background-image: linear-gradient(0deg, #63a4ff 0%, #83eaf1 74%);
+}
+
+table#tableCalculate th {
+  font-size: medium;
+  background: white;
+
+}
+
+#generate-link:disabled {
+  background-color: lightgray;
+}
+
+
+@keyframes glowing {
+  0% {
+    background-color: #f7b42c;
+    background-image: linear-gradient(315deg, #f7b42c 0%, #fc575e 74%);
+    box-shadow: 0 0 5px #D01C1F;
+  }
+  50% {
+    background-color: #f7b42c;
+    background-image: linear-gradient(315deg, #f7b42c 0%, #fc575e 74%);
+    box-shadow: 0 0 20px #D01C1F;
+  }
+  100% {
+    background-color: #f7b42c;
+    background-image: linear-gradient(315deg, #f7b42c 0%, #fc575e 74%);
+    box-shadow: 0 0 5px #D01C1F;
+  }
+}
+
+#fulfillButton {
+  -webkit-border-radius: 60px;
+  margin-left: 10px;
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  color: #eeeeee;
+  display: inline-block;
+  font-weight: bolder;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  animation: glowing 700ms infinite;
+  visibility: hidden;
+}
+
+.plansButton {
+  display: grid;
+}
+
+#fulfillButton:hover {
+  transform:scale(1.2);
+}

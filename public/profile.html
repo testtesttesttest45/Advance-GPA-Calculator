@@ -1,0 +1,262 @@
+<link rel="stylesheet" href="./css/profile.css">
+<!-- <link rel="stylesheet" href="./css/plan.css"> -->
+<script src="https://kit.fontawesome.com/087a8a6b95.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+    integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Sweet Alert libary -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+    integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+
+<script src="./js/global.js" type="module"></script>
+<script src="./js/profile.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+</head>
+
+<body class="">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="favicons/android-chrome-192x192.png" width="25" height="25" alt="Logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href='modules.html'>All Modules</a></li>
+                    <!-- <li><a href='plan.html'>Plan</a></li> -->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href='search.html'>Search <i class="fas fa-search"></i></a></li>
+                    <li><a href='profile.html' id="thisusername">Login</a></li>
+                    <li><a href='signup.html' id="signupButton">Sign Up</a></li>
+                    <li><a href='login.html' id="logoutButton">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container bootstrap snippets bootdey">
+        <div class="row">
+            <div class="profile-nav col-md-3">
+                <div class="panel">
+                    <div class="user-heading round">
+                        <a disabled>
+                            <img id="statusImage" src="./media/no_pfp.png" alt="profile-pic">
+                        </a>
+                        <h1 id="banner-username"></h1>
+                        <p id="banner-email"></p>
+                        <p id="banner-status"></p>
+                        <p>User Status▼</p>
+                        <select name="statusDroplist" id="statusDroplist" style="color:black;width:150px;">
+                            <option class="statusItems" value="prodigy" style="color:black" disabled>Prodigy Student
+                            </option>
+                            <option class="statusItems" value="excellent" style="color:black" disabled>Ace Student
+                            </option>
+                            <option class="statusItems" value="good" style="color:black" disabled>Good Student</option>
+                            <option class="statusItems" value="average" style="color:black" disabled>Normal Student
+                            </option>
+                            <option class="statusItems" value="bad" style="color:black" disabled>Bad Student</option>
+                            <option class="statusItems" value="hopeless" style="color:black" disabled>Hopeless Student
+                            </option>
+                        </select>
+                    </div>
+
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="/profile.html"> <i class="fa fa-user"></i>Profile</a></li>
+                        <li><a href="/edit-profile.html"> <i class="fa fa-edit"></i>Edit profile</a></li>
+                        <li><a href="/plan.html"> <i class="fa-solid fa-bullseye"></i>Plan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="profile-info col-md-6">
+                <div class="panel">
+                    <div class="bio-graph-heading">
+                        My Information
+                    </div>
+                    <div class="panel-body bio-graph-info">
+                        <!-- <h1>Information</h1> -->
+                        <div class="row">
+                            <div class="bio-row">
+                                <p style="color: grey;">Username: <span id="panel-body-username"
+                                        style="color: black;"></span></p>
+                            </div>
+                            <div class="bio-row">
+                                <p style="color: grey;">Email: <span id="panel-body-email" style="color: black;"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+                <div class="panel">
+                    <div class="bio-graph-heading">My Grades</div>
+                    <div class="row">
+                        <div id="profileDetails2"></div>
+                    </div>
+                </div>
+                <br><br><br>
+                <!-- <div class="panel">
+                    <div class="bio-graph-heading">
+                        My Plan
+                    </div>
+                </div> -->
+            </div>
+            <div class="profile-sorter col-md-3">
+                <div id="sortingContainer">
+                    <h3>SORT RESULTS BY</h3>
+                    <div>
+                        <form id="sortingForm">
+                            <div style="float: left; width: 50%;">
+                                <h4>GPA</h4>
+                                <input type="radio" class="gpaSort" id="gpaAsc" name="gpaAsc" value="Descending">
+                                <label for="gpaAsc">Highest First</label><br>
+                                <input type="radio" class="gpaSort" id="gpaDesc" name="gpaDesc" value="Ascending">
+                                <label for="gpaDesc">Lowest First</label>
+                            </div>
+                            <div style="float: right; width: 50%;">
+                                <h4>Creation</h4>
+                                <input type="radio" class="creationSort" id="creationAsc" name="creationAsc"
+                                    value="Descending">
+                                <label for="creationAsc">Latest First</label><br>
+                                <input type="radio" class="creationSort" id="creationDesc" name="creationDesc"
+                                    value="Ascending">
+                                <label for="creationDesc">Oldest First</label>
+                                <!-- default will show oldest as first -->
+                            </div>
+                            <button type="button" id="sortButton">Update</button>
+                        </form>
+                    </div>
+                    <br><br><br><br><br>
+                    <div id="pageContainer"></div>
+                    <p style="font-weight:bold;margin-top:10px;" id="displayingNumbers"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+<!-- Moved scripts to profile.js; Try not to put it inside the HTML next time :)-->
+<!-- <script>
+    // try {
+    //     $(document).ready(function () {
+    //         let dataHTML = "";
+    //         const user_id = localStorage.getItem('userid');
+
+    //         $.ajax({
+    //             url: `/user/${user_id}`,
+    //             type: " GET", // dataType: "json" , // success: function (data, textStatus, xhr) { // const { //
+                        username, // email // }=data[0]; //
+                        document.getElementById("banner-username").innerHTML=username; //
+                        document.getElementById("banner-email").innerHTML=email; //
+                        document.getElementById("panel-body-username").innerHTML=username; //
+                        document.getElementById("panel-body-email").innerHTML=email; // }, // }); // }); // } catch (ex)
+                        { // console.log(ex) // } </script> -->
+<!-- <script>
+    // try {
+    //     $(document).ready(function () {
+    //         let dataHTML = "";
+    //         const user_id = localStorage.getItem('userid');
+
+    //         $.ajax({
+    //             url: `/users/${user_id}`,
+    //             type: "GET",
+    //             dataType: "json",
+    //             success: function (data, textStatus, xhr) {
+    //                 //change to if user is logged in , get data from database
+    //                 if (data.length > 0) {
+    //                     for (let i = 0; i < data.length; i++) {
+    //                         // Variables
+    //                         let gpa = 0;
+    //                         let totalCredit = 0;
+    //                         let arr = JSON.parse(data[i].data);
+
+    //                         // Extracting the gpa and total credit
+    //                         arr.map((item) => {
+    //                             const {
+    //                                 name,
+    //                                 credit,
+    //                                 grade
+    //                             } = item;
+
+    //                             gpa += credit * grade;
+    //                             totalCredit += credit;
+    //                         });
+
+    //                         dataHTML += `
+    //                         <div class="col-md-12">
+    //                             <div class="row">
+    //                             <div class="panel-body bio-graph-info">
+    //                                 <h1 style="margin-bottom: 0">GPA For Semester ${i + 1}: ${parseFloat((gpa / totalCredit).toFixed(2))}</h1>
+    //                                 <br />
+    //                                 <button class="btn btn-danger" id="deleteSet" onclick="deleteRecord(${parseInt(data[i].result_id)})">Delete Set</button>
+    //                             </div>`
+
+    //                         arr.map((item) => {
+    //                             dataHTML +=
+    //                                 `<div class="col-md-6">
+    //                                     <div class="panel">
+    //                                         <div class="panel-body">
+    //                                             <div class="bio-chart">
+    //                                                 <div style="display:inline;width:100px;height:100px;"><canvas width="100"
+    //                                                         height="100px"></canvas><input class="knob" data-width="100"
+    //                                                         data-height="100" data-displayprevious="true" data-thickness=".2"
+    //                                                         value="${item.name}" data-fgcolor="#4CC5CD" data-bgcolor="#e8e8e8"
+    //                                                         style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(76, 197, 205); padding: 0px; -webkit-appearance: none; background: none;">
+    //                                                 </div>
+    //                                             </div>
+    //                                             <div class="bio-desk">
+    //                                                 <h4 class="terques">${item.name}</h4>
+    //                                                 <p>Grade : ${item.grade}</p>
+    //                                                 <p>Credit : ${item.credit}</p>
+    //                                             </div>
+    //                                         </div>
+    //                                     </div>
+    //                                 </div>
+    //                             `;
+    //                         });
+
+    //                         dataHTML += `</div></div>`
+    //                     }
+    //                 } else {
+    //                     dataHTML = `
+    //                             <div class="panel-body bio-graph-info">
+    //                                 <h1 style="margin-bottom: 0">No Records Available</h1>
+    //                             </div>`
+    //                 }
+    //                 $("#profileDetails2").append(dataHTML);
+    //             },
+    //         });
+    //     });
+    // } catch (ex) {
+    //     console.log(ex)
+    // }
+</script> -->
